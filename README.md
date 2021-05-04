@@ -13,28 +13,28 @@ go get github.com/iluxaorlov/logram
 package main
 
 import (
-	"flag"
-	"github.com/iluxaorlov/logram/pkg/logram"
-	"io"
-	"log"
-	"os"
+    "flag"
+    "github.com/iluxaorlov/logram/pkg/logram"
+    "io"
+    "log"
+    "os"
 )
 
 var token string
 var chatId int64
 
 func init() {
-	flag.StringVar(&token, "token", "", "bot token")
-	flag.Int64Var(&chatId, "chatId", 0, "chat id")
+    flag.StringVar(&token, "token", "", "bot token")
+    flag.Int64Var(&chatId, "chatId", 0, "chat id")
 }
 
 func main() {
-	flag.Parse()
+    flag.Parse()
 
-	lg := logram.NewWriter(token, chatId)
+    lg := logram.NewWriter(token, chatId)
 
-	log.SetOutput(io.MultiWriter(os.Stdout, lg))
+    log.SetOutput(io.MultiWriter(os.Stdout, lg))
 
-	log.Println("Some error occurred")
+    log.Println("Some error occurred")
 }
 ```
